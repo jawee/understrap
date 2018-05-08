@@ -22,30 +22,36 @@ $container   = get_theme_mod( 'understrap_container_type' );
 	<div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
 
 		<div class="row">
+				<?php
+				$args = array( 'numberposts' => 6, 'offset' => 3 );
+				$recent_posts = wp_get_recent_posts($args);
+				wp_reset_query();
 
-			<!-- Do the left sidebar check -->
-			<?php get_template_part( 'global-templates/left-sidebar-check' ); ?>
+				?>
+				<?php
+				  $count = 0;
+				  foreach($recent_posts as $recent) {
+				    ?>
+						<div class="col-sm">
+				    	<img src="<?php echo get_the_post_thumbnail_url($recent["ID"]); ?>" class="img-fluid">
+				      <!-- <div class="carousel-caption d-none d-md-block"> -->
+				        <h3><?php echo $recent["post_title"]; ?></h3>
+				        <a href="<?php echo get_permalink($recent["ID"]); ?>" class="btn btn-primary">Läs mer</a>
+				    </div>
+				    <?php
+				    $count++;
+						if($count%3 == 0) {
+							echo '</div>';
+							echo '<div class="row">';
+						}
+				  }
 
-			<main class="site-main" id="main">
+					$remaining = $count%3;
+					for($i = 1; $i < $remaining; $i++) {
+						echo '<div class="col-sm"></div>';
+					}
 
-				<?php while ( have_posts() ) : the_post(); ?>
-
-					<?php get_template_part( 'loop-templates/content', 'page' ); ?>
-
-					<?php
-					// If comments are open or we have at least one comment, load up the comment template.
-					if ( comments_open() || get_comments_number() ) :
-						comments_template();
-					endif;
-					?>
-
-				<?php endwhile; // end of the loop. ?>
-
-			</main><!-- #main -->
-
-		<!-- Do the right sidebar check -->
-		<?php get_template_part( 'global-templates/right-sidebar-check' ); ?>
-
+				?>
 	</div><!-- .row -->
 
 </div><!-- Container end -->

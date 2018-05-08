@@ -8,15 +8,7 @@
 
 $args = array( 'numberposts' => '5' );
 $recent_posts = wp_get_recent_posts($args);
-
 // print_r($recent_posts);
-
-// print_r(get_the_post_thumbnail($recent_posts[0]["ID"]));
-
-// wp_get_attachment_image_src()
-// foreach( $recent_posts as $recent ){
-//   echo '<li><a href="' . get_permalink($recent["ID"]) . '">' .   $recent["post_title"].'</a> </li> ';
-// }
 wp_reset_query();
 
 ?>
@@ -35,7 +27,7 @@ wp_reset_query();
       <img class="d-block img-fluid" src="<?php echo get_the_post_thumbnail_url($recent["ID"]); ?>">
       <div class="carousel-caption d-none d-md-block">
         <h3><?php echo $recent["post_title"]; ?></h3>
-        <a href="#" class="btn btn-primary">Läs mer</a>
+        <a href="<?php echo get_permalink($recent["ID"]); ?>" class="btn btn-primary">Läs mer</a>
       </div>
     </div>
     <?php
