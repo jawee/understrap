@@ -53,8 +53,3 @@ wp_reset_query();
     </div>
   </div> -->
 </div>
-<script>
-  jQuery('#featured-slider').carousel({
-    interval: 15000
-  });
-</script>
