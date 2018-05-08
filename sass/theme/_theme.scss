@@ -166,8 +166,24 @@ $darkblue: #002856;
 
 .news-frontpage {
   text-align: center;
-  img {
-    object-fit: cover;
-    max-height: 150px;
+  margin-bottom: 30px;
+  .news-content {
+    padding-bottom: 15px;
+    background-color: #ffffff;
+    .image-container {
+      background-size: cover;
+      background-position: center;
+      height: 170px;
+      width: 100%;
+      display: block;
+    }
+    img {
+      object-fit: cover;
+      max-height: 150px;
+    }
   }
+}
+
+body {
+  background-color: #EDEDED;
 }
