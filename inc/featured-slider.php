@@ -6,7 +6,7 @@
  * @package understrap
  */
 
-$args = array( 'numberposts' => '5' );
+$args = array( 'numberposts' => '3' );
 $recent_posts = wp_get_recent_posts($args);
 // print_r($recent_posts);
 wp_reset_query();
@@ -15,8 +15,19 @@ wp_reset_query();
 
 <div id="featured-slider" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
-    <li data-target="#featured-slider" data-slide-to="0" class="active"></li>
-    <li data-target="#featured-slider" data-slide-to="1"></li>
+    <?php
+      for($i = 0; $i < count($recent_posts); $i++) {
+        echo '<li data-target="#featured-slider" data-slide-to="';
+        echo  $i;
+        if($i == 0) {
+          echo '" class="active';
+        }
+        echo '"></li>';
+
+      }
+
+    ?>
+
   </ol>
   <div class="carousel-inner" role="listbox">
 <?php
