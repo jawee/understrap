@@ -15,9 +15,16 @@ $darkblue: #002856;
   // text-transform: uppercase;
   // height: 700px;
   // background-position: center;
+  position: absolute;
+  width: 100%;
+  top: 50px;
+
+  .dropdown {
+    position: unset;
+  }
 
   .navbar {
-    margin: 50px 200px 0 200px;
+    margin: 0 200px 0 200px;
     // top: 50px;
     padding: 0px;
     .navbar-brand {
