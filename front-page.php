@@ -21,7 +21,7 @@ $container   = get_theme_mod( 'understrap_container_type' );
 
 	<div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
 
-		<div class="row">
+		<div class="row news-frontpage">
 				<?php
 				$args = array( 'numberposts' => 6, 'offset' => 3 );
 				$recent_posts = wp_get_recent_posts($args);
@@ -42,7 +42,7 @@ $container   = get_theme_mod( 'understrap_container_type' );
 				    $count++;
 						if($count%3 == 0) {
 							echo '</div>';
-							echo '<div class="row">';
+							echo '<div class="row news-frontpage">';
 						}
 				  }
 

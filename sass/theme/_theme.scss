@@ -149,7 +149,7 @@ $darkblue: #002856;
     bottom: 50px;
     h3 {
       font-weight: 400;
-      margin-bottom: 30px;  
+      margin-bottom: 30px;
     }
 
   }
@@ -162,4 +162,12 @@ $darkblue: #002856;
 .btn-primary {
   background-color: $yellow;
   border-color: $yellow;
+}
+
+.news-frontpage {
+  text-align: center;
+  img {
+    object-fit: cover;
+    max-height: 150px;
+  }
 }
