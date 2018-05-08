@@ -140,8 +140,26 @@ $darkblue: #002856;
       }
     }
   }
+
+  .carousel-indicators li {
+    width: 170px;
+  }
+
+  .carousel-caption {
+    bottom: 50px;
+    h3 {
+      font-weight: 400;
+      margin-bottom: 30px;  
+    }
+
+  }
 }
 
 #index-wrapper, #page-wrapper {
   padding-top: 170px;
+}
+
+.btn-primary {
+  background-color: $yellow;
+  border-color: $yellow;
 }
